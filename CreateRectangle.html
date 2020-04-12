@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateRectangle</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1100" height="500" style="border: 1px solid #d3d3d3;"></canvas>
+    <script>
+        let Rectangle = function (width,height) {
+            this.width = width;
+            this.height = height;
+            this.perimeter = function () {
+                return (this.width+this.height)*2;
+            }
+            this.area = function () {
+                return this.width*this.height;
+            }
+            this.display = function () {
+                let ctx = document.getElementById('myCanvas').getContext("2d");
+                ctx.beginPath();
+                ctx.fillRect(0,0,this.width,this.height);
+            }
+        }
+        let rectangle = new Rectangle(200,100);
+        let perimeter = rectangle.perimeter();
+        let area = rectangle.area();
+        rectangle.display();
+        alert("Chu vi HCN là " + perimeter +" Diện tích HCN là: " + area);
+    </script>
+</body>
+</html>
